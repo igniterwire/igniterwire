@@ -1,24 +1,3 @@
-if (!function_exists('igniter_text')) {
-    function igniter_text($value) {
-        return htmlspecialchars((string)$value);
-    }
-}
-
-if (!function_exists('igniter_if')) {
-    function igniter_if($condition, $true, $false = '') {
-        return $condition ? $true : $false;
-    }
-}
-
-if (!function_exists('igniter_foreach')) {
-    function igniter_foreach($array, $callback) {
-        $result = '';
-        foreach ($array as $key => $value) {
-            $result .= $callback($value, $key);
-        }
-        return $result;
-    }
-}
 <?php
 if (!function_exists('igniterwire')) {
     function igniterwire($component, $params = []) {
