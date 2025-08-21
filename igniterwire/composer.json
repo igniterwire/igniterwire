@@ -1,0 +1,21 @@
+{
+    "name": "igniterwire/igniterwire",
+    "description": "Livewire benzeri, CodeIgniter için reaktif component paketi.",
+    "type": "library",
+    "require": {
+        "php": ">=7.4",
+        "codeigniter4/framework": ">=4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "IgniterWire\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abdullah ÖZCAN",
+            "email": "abdullah.ozcan@gmail.com"
+        }
+    ]
+}
