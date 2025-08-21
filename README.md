@@ -1,3 +1,43 @@
+## Lifecycle Kullanımı
+
+Bir componentte lifecycle fonksiyonlarını override ederek süreçlere müdahale edebilirsiniz:
+
+```php
+class Ornek extends Component
+{
+	public $count = 0;
+
+	public function beforeMount()
+	{
+		// Component oluşturulmadan hemen önce çalışır
+	}
+
+	public function mount($ilkDeger = 0)
+	{
+		$this->count = $ilkDeger;
+	}
+
+	public function afterMount()
+	{
+		// Component oluşturulduktan sonra çalışır
+	}
+
+	public function updating($property, $value)
+	{
+		// Herhangi bir property güncellenmeden önce çalışır
+	}
+
+	public function updated($property, $value)
+	{
+		// Herhangi bir property güncellendikten sonra çalışır
+	}
+
+	public function updateCount($value)
+	{
+		// Sadece $count değişkeni güncellendiğinde çalışır
+	}
+}
+```
 # IgniterWire
 
 CodeIgniter için Livewire benzeri reaktif component paketi.
