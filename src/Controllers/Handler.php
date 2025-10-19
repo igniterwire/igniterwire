@@ -29,6 +29,9 @@ class Handler extends Controller
         $data = $instance->getViewData();
         $data['component'] = $instance;
         $html = function_exists('view') ? view($view, $data) : '';
-        return $this->response->setJSON(['html' => $html]);
+        return $this->response->setJSON([
+            'html' => $html,
+            'state' => $instance->getViewData()
+        ]);
     }
 }

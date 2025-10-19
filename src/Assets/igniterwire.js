@@ -65,17 +65,20 @@ document.addEventListener('click', function(e) {
                     }
                     renderIgniterDirectives(component);
                 }
-                // İlk yüklemede de çalıştır ve state'i yükle
-                document.querySelectorAll('[igniter-component]').forEach(component => {
-                    const stateAttr = component.getAttribute('data-igniter-state');
-                    if (stateAttr) {
-                        try {
-                            component.__igniterState = JSON.parse(stateAttr);
-                        } catch (e) {}
-                    }
-                    renderIgniterDirectives(component);
-                });
             });
         }
     }
+});
+
+// İlk yüklemede de çalıştır ve state'i yükle
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[igniter-component]').forEach(component => {
+        const stateAttr = component.getAttribute('data-igniter-state');
+        if (stateAttr) {
+            try {
+                component.__igniterState = JSON.parse(stateAttr);
+            } catch (e) {}
+        }
+        renderIgniterDirectives(component);
+    });
 });
