@@ -22,6 +22,7 @@ class MakeComponent extends BaseCommand
             return;
         }
         $className = ucfirst($name);
+        $lowerName = strtolower($name);
         $componentDir = APPPATH . 'IgniterWire/Components/';
         if (!is_dir($componentDir)) {
             mkdir($componentDir, 0777, true);
@@ -31,7 +32,7 @@ class MakeComponent extends BaseCommand
             CLI::error('Bu isimde bir component zaten var.');
             return;
         }
-        $template = "<?php\nnamespace App\\IgniterWire\\Components;\n\nuse IgniterWire\\Component;\n\nclass $className extends Component\n{\n    public function render()\n    {\n        return view('igniterwire/components/$name');\n    }\n}\n";
+        $template = "<?php\nnamespace App\\IgniterWire\\Components;\n\nuse IgniterWire\\Component;\n\nclass $className extends Component\n{\n    public function render()\n    {\n        return view('igniterwire/components/$lowerName');\n    }\n}\n";
         file_put_contents($componentPath, $template);
         // View dosyası
         $viewDir = APPPATH . 'Views/igniterwire/components/';

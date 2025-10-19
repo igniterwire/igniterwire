@@ -28,6 +28,7 @@ abstract class Component
     {
         return $this->state;
     }
+
     /**
      * Component oluşturulmadan hemen önce çağrılır
      */
